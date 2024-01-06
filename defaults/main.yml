@@ -1,0 +1,11 @@
+apt_cache_valid_time: 3600
+
+apt_packages_to_install: []
+
+apt_packages_to_remove: []
+
+apt_upgrade: false
+
+apt_autoremove: false
+
+apt_autoremove_purge: false

@@ -1,0 +1,27 @@
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: "{{ apt_cache_valid_time }}"
+
+- name: Install {{ item }}
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ packages_to_install }}"
+
+- name: Remove {{ item }}
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: absent
+  loop: "{{ packages_to_remove }}"
+
+- name: Upgrade packages
+  ansible.builtin.apt:
+    update_cache: true
+  when: upgrade | bool
+
+- name: Remove dependencies that are no longer required and optionally purge their configuration files
+  ansible.builtin.apt:
+    autoremove: true
+    purge: "{{ apt_autoremove_purge }}"
+  when: autoremove | bool
