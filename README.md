@@ -6,12 +6,12 @@ A simple Ansible role to handle installing, removing and upgrading packages with
 Requirements
 ------------
 
-None.
+- apt
 
 Role Variables
 --------------
 
-The following variables can be customized in `defaults/main.yml`:
+Available variables are listed below, along with default values (see `defaults/main.yml`):
 
 ```yaml
 apt_cache_valid_time: 3600
