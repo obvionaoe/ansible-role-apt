@@ -3,13 +3,13 @@
     update_cache: true
     cache_valid_time: "{{ apt_cache_valid_time }}"
 
-- name: Install {{ item }}
+- name: "Install {{ item }}"
   ansible.builtin.apt:
     name: "{{ item }}"
     state: present
   loop: "{{ apt_packages_to_install }}"
 
-- name: Remove {{ item }}
+- name: "Remove {{ item }}"
   ansible.builtin.apt:
     name: "{{ item }}"
     state: absent
